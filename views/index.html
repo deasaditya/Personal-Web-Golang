@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>personal-web</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body style="background-color: #e0e0e0;">
+<nav class="navbar navbar-expand-lg bg-body-secondary">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="../public/img/logo.png" id="image" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/">Home</a>
+            </li>
+           
+              <li class="nav-item ms-3">
+                <a class="nav-link fw-semibold active text-dark font-weight-bold" href="/formaddproject">Add Project</a>
+              </li>
+            
+          </ul>
+
+          <div class="d-flex justify-content-end">
+            <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+              {{if  .Flash.FlashStatus}}
+                <li class="nav-item">
+                <a class="nav-link" href="#">Hello, {{ .Flash.FlashName}} </a>
+                </li>
+                <li class="nav-item ms-3">
+                <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {{else}}
+              <li class="nav-item">
+                  <a class="nav-link text-danger active fw-semibold" href="/formregister">Register</a>
+              </li>
+              <li class="nav-item ms-3">
+                  <a class="nav-link" href="/form-login" style="margin-right: 20px;">Login</a>
+              </li>
+              {{end}}
+          </ul>
+               <a class="btn btn-dark btn-submit" href="/contact-me">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {{if .Flash.FlashStatus}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Berhasil Masuk</strong> Silahkan untuk memasukan project kamu!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{end}}
+
+<div class="container bg-white d-flex justify-content-center align-items-center" style="margin:120px 120px 120px 120px ; height: 130vh;">
+	<section class="d-flex" style="width: 80%;">
+		
+		<div class="left-content" style="flex: 70%;">
+	<h1>Hi Welcome To My Hut</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+	<div class=" d-flex" style="margin-top: 25px;">
+		<button class="border 20px btn btn-dark d-inline-block rounded-4 " style="padding: 10px 30px; cursor: pointer;">contact</button>
+<div class="cv" style="margin-top: 10px; margin-left: 30px;">
+	<a class="text-dark text-decoration-none pb-50" href="#">download CV</a>
+	<i class="fa-solid fa-download"></i>
+</div>
+	</div>
+
+	<div class="container-sosmed" style="margin-top: 25px;">
+		<div class="list-sosmed">
+			<i class="fa-brands fa-linkedin fa-2x" style="font-size: 30px;
+    		margin-right: 20px;"></i>
+
+			<a href="https://www.facebook.com/deas.aditiya" style="color: black;"><i class="fa-brands fa-facebook fa-2x" style="font-size: 30px;
+    		margin-right: 20px;"></i></a>
+			<a href="https://www.instagram.com/adityadeas8/" style="color: black;"><i class="fa-brands fa-instagram fa-2x" style="font-size: 30px;
+    		margin-right: 20px;"></i></a>
+			<i class="fa-brands fa-twitter fa-2x " style="font-size: 30px;
+    		margin-right: 20px;"></i>
+		</div>
+	</div>
+
+</div>	
+	
+	<div class="right-content" style="flex: 30%;">	
+					<div class="" style="width: 350px; padding: 15px; box-shadow: 0 0 30px #dbdbdb;">	
+ 	             		<div class="" >	
+              				<img src="../public/img/1.jpg" style="width: 100%; border-radius: 10px;">
+              			</div>			
+
+              			<h1 class="text-center fw-bold"> Deas Aditya</h1>
+              			<p class="text-center">Fullstack Developer</p>
+
+					</div>
+			</div>
+	</section>
+</div>
+
+<div style="background-color: #fbfbfb; padding-top: 50px;">
+      <h1 class="fw-900 text-center fw-bold " style="margin: 0; margin-bottom: 50px;">MY PROJECT</h1>
+      
+      <div class="d-flex justify-content-center" style="width: 100%;">
+        
+        <div class=" d-flex flex-wrap" style="width: 90%;" >
+          {{range $index, $data := .Projects}}
+          <div class="project-container" style="width: 30%; background-color: #ffffff; box-shadow: 0 5px 5px rgba(29,29,29,0.25); padding: 20px; border-radius: 10px; margin: 15px;">
+            <img src="/upload/{{$data.Image}}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 7px;" />
+            <a class="text-decoration-none text-dark" href="/detail/{{$data.Id}}"><h4 class="mb-3">{{$data.Name}}</h4></a>
+            <div class="mb-2">{{$data.Duration}} | Deas Aditya</div>
+            <p>
+              {{$data.Description}}
+            </p>
+            <div class="mb-3">
+              {{range $index, $data := $data.Technologies}}
+              <i class="fa-brands fa-{{$data}} fa-2x" style="margin-right: 20px;"></i>
+            {{end}}
+            </div>
+            <div>
+              <a href="/edit-project/{{.Id}}" class="text-decoration-none border border-0 bg-dark font-weight-bold" style="color: #ffffff; padding: 5px 30px; width: 100%; border-radius: 7px; font-size: 16px;">edit</a>
+              <a href="/delete-project/{{$data.Id}}" class="text-decoration-none border border-0 bg-dark font-weight-bold" style="color: #ffffff; padding: 5px 30px; width: 100%; border-radius: 7px; font-size: 16px;">delete</a>
+            </div>
+          </div>
+          {{end}}
+        </div>
+        
+      </div>
+      
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
